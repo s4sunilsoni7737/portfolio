@@ -174,7 +174,10 @@ width: 50%;
         font-size: 13px;
         font-weight: 300;
         border-radius: 10px;
-        transition: background 0.5s, transform0.5s;
+        transition: background 0.5s, transform 0.5s, box-shadow 0.5s;
+        
+       
+
     }
     .services-list div i{
         font-size: 50px;
@@ -196,7 +199,7 @@ width: 50%;
     .services-list div:hover{
         background: #ff004f;
         transform: translatey(-10px);
-
+box-shadow:  10px 15px 20px #544d4f ;
     }
     /* portfolio */
     #portfolio{
