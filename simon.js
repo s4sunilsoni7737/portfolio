@@ -12,15 +12,42 @@ let highestScore = 0;
 let h3 = document.querySelector("h3");
 let h2 = document.querySelector("h2");
 
-document.addEventListener("keypress",function(){
-    // console.log("game started");
+let startBtn = document.querySelector("#start-btn");
+let startIcon = document.querySelector("i");
+
+startBtn.addEventListener("click", startGame);
+startIcon.addEventListener("click", startGame);
+
+function flashStartButton(btn) {
+    btn.classList.add("circleflash");
+    setTimeout(() => btn.classList.remove("circleflash"), 300);
+}
+
+
+
+document.addEventListener("keypress",startGame);
+
+function startGame(){
     if(started == false){
         console.log("game is strarted");
         started = true;
-
+        flashStartButton(startBtn);
         levelUP();
     }
-});
+
+}
+
+// document.addEventListener("keypress",function(){
+//     // console.log("game started");
+//     if(started == false){
+//         console.log("game is strarted");
+//         started = true;
+
+//         levelUP();
+//     }
+  
+// });
+
 
 function gameFlash(btn){
     btn.classList.add("flash");
