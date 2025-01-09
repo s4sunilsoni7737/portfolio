@@ -1,5 +1,8 @@
 body{
     text-align: center;
+    
+
+   
 }
 .btn{
     height: 200px;
@@ -29,8 +32,49 @@ body{
     background-color: white;
 }
 .userflash{
-    background-color: rgb(77, 126, 4);
+    background-color: white;
 }
 .redflash{
     background-color: red;
 }
+.circleflash{
+    background-color: black;
+}
+.circle i {
+    color: aliceblue;
+    font-size: 3rem;
+    margin: auto;
+}
+.circle {
+    
+    width: 100px;
+    height: 100px;
+    background-color: rgb(135, 20, 20); /* Gold color for the circle */
+    border-radius: 50%;
+    margin: 13.8rem auto; /* Center it horizontally */
+    border: 8px solid black;
+    position: fixed; /* Adjust position relative to surrounding buttons */
+    z-index: 1; /* Ensure it stays on top of other elements */
+    display: flex;
+    
+
+
+}
+
+@media (max-width: 768px) {
+    .btn {
+        height: 120px; /* Reduced button size */
+        width: 120px;  /* Reduced button size */
+        margin: 1.5rem; /* Reduced margin between buttons */
+    }
+    .circle {
+        width: 65px;  /* Smaller circle */
+        height: 65px; /* Smaller circle */
+        font-size: 3rem; /* Smaller font size for the icon */
+        margin: 8.4rem auto; /* Adjusted circle positioning for mobile */
+    }
+    .fa-solid {
+        font-size: 4rem; /* Reduced icon size for mobile view */
+    }
+}
+
