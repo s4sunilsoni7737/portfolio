@@ -74,6 +74,7 @@ nav ul li a:hover::after{
 }
 .header-text h1 span{
     color: #ff004f;
+    
 }
 /* about */
 #about{
@@ -87,15 +88,18 @@ nav ul li a:hover::after{
 }
 .about-col-1{
     flex-basis: 35%;
+
+    
+
 }
 .about-col-1 img{
     width: 250px;
     /* height: 430px; */
     transition:transform 0.5s ;
     transition:box-shadow 0.5s;
-    
-    
     border-radius: 15px;
+
+   
     
 }
 .about-col-1 img:hover{
@@ -140,13 +144,18 @@ cursor: pointer;
 .tab-links.active-link::after{
 width: 50%;
 }
+
+
+
 .tab-contents ul li{
     list-style: none;
     margin: 10px 0;
+    font-size:14px ;
+
     
 }
 .tab-contents ul li span{
-    font-size:14px ;
+    font-size:16px ;
     color: #b54769;
 }
 .tab-contents{
@@ -155,6 +164,8 @@ width: 50%;
 .tab-contents.active-tab{
     display: block;
 }
+
+
 
     /* services */
 
