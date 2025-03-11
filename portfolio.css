@@ -76,7 +76,17 @@ nav ul li a:hover::after{
 }
 .header-text h1 span{
     color: #ff004f;
+    animation: colorAnimation 2s ease-in 2s infinite alternate ;
     
+}
+@keyframes colorAnimation {
+    from{
+        color: #ff004f;
+    }
+    to{
+        color: #ff005182;
+        /* color: #000; */
+    }
 }
 /* about */
 #about{
