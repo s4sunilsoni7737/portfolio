@@ -7,6 +7,15 @@
         <title>PORTFOLIO</title>
         <link rel="stylesheet" href="portfolio.css">
         <script src="https://kit.fontawesome.com/1c95cf8156.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
+        <script type="text/javascript">
+        (function() {
+        emailjs.init("ICEpKJPeLGGhdKpt1"); // your public key
+        })();
+        </script>
+        
+        
+        
     </head>
     <body>
      <div id="header">
@@ -278,7 +287,24 @@
         btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 </script> -->
+<script>
+  document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // stop default for a second
 
+    // send using EmailJS
+    emailjs.sendForm("YOUR_SERVICE_ID", "yvyxtjiV_Yb2-3U8wfOaE", this)
+      .then(function() {
+        console.log("Email sent via EmailJS ✅");
+      }, function(error) {
+        console.error("EmailJS failed ❌", error);
+      });
+
+    // now continue with normal form submission
+    setTimeout(() => {
+      event.target.submit();
+    }, 500); // small delay so both work
+  });
+</script>
 <script>
     var tablinks = document.getElementsByClassName("tab-links");
     var tabcontents = document.getElementsByClassName("tab-contents");
