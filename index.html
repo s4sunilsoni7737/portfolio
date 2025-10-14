@@ -351,8 +351,10 @@ form.addEventListener('submit', e => {
         const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
         // If the card is visible on screen (50% or more)
-        if (rect.top < windowHeight * 0.8 && rect.bottom > 0) {
-          card.classList.add("auto-hover");
+        if (rect.top < windowHeight * 0.75 && rect.bottom > windowHeight * 0.2) {
+          setTimeout(() => {
+              card.classList.add("auto-hover");
+            }, 450);
         } else {
           card.classList.remove("auto-hover");
         }
