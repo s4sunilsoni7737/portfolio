@@ -32,6 +32,7 @@
                 <p>MERN&nbsp;|&nbsp;Full-Stack Developer
                 </p>
                 <h1>Hi, I'm <span>Sunil</span><br>Soni from Jodhpur</h1>
+                
             </div>
         </div>
      </div>  
@@ -126,14 +127,16 @@
                 </div>
                 <div class="tab-contents" id="Experience">
                     <ul>
+                        <li><span>Renx Labs pvt limited, Jodhpur </span><br>Back-End Development Intern </li>
+                        <li><span>WsCube Tech, Jodhpur</span><br>Full-Stack Development Trainee</li>
+
                         <li><span>Zeetron Network Pvt. Ltd, Jaipur</span><br>MERN-Stack Development Intern & Trainee</li>
-                        <li><span>WsCube Tech, Jaipur</span><br>Full-Stack Development Trainee</li>
                         <li><span>2022 - 20XX</span><br>XYZ</li>
                     </ul>
                 </div>
                 <div class="tab-contents" id="Education">
                     <ul>
-                        <li><span>2022 - 2026</span><br>B.Tech (CSE) - Jodhpur Institute of Engineering and Technology, Rajasthan (CGPA: 7.16/10)</li>
+                        <li><span>2022 - 2026</span><br>B.Tech (CSE) - Jodhpur Institute of Engineering and Technology, Rajasthan (CGPA: 7.28/10)</li>
                         <li><span>2021 - 2022</span><br>12th (RBSE) - Diamond School, Jodhpur (CGPA: 8.67/10)</li>
                         <li><span>2019 - 2020</span><br>10th (RBSE) - Anant Lewis Public School, Jodhpur (CGPA: 6.91/10)</li>
                     </ul>
@@ -338,7 +341,28 @@ form.addEventListener('submit', e => {
 });
   </script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".card");
 
+    function handleScroll() {
+      cards.forEach((card) => {
+        const rect = card.getBoundingClientRect();
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+        // If the card is visible on screen (50% or more)
+        if (rect.top < windowHeight * 0.8 && rect.bottom > 0) {
+          card.classList.add("auto-hover");
+        } else {
+          card.classList.remove("auto-hover");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Trigger once on load
+  });
+</script>
 
     </body>
     

@@ -202,6 +202,44 @@ nav ul li a:hover::after{
     opacity: 1;
 }
 
+
+
+
+.card.auto-hover .marvel {
+  left: 80%;
+    
+    transform: translateX(-50%);
+}
+
+.card.auto-hover .marvel img {
+width: 190px;
+    margin-bottom: -1.8px;
+    transition: 0.5s;
+}
+
+.card.auto-hover .content {
+  visibility: visible;
+    left: 10px;
+
+    opacity: 1;
+}
+.card.auto-hover{
+    
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+    background: #ababab;
+    /* box-shadow: 10px 15px 20px #ad9ea3; */
+    
+ 
+   
+
+}
+
+
+
+
+
 .content h2{
     text-transform: uppercase;
     font-family: Arial, Helvetica, sans-serif;
