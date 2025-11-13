@@ -504,14 +504,32 @@ form input, form textarea{
     margin: 15px 0;
     color: #fff;
     font-size: 18px;
-    border-radius:6px ;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+form input:focus, form textarea:focus {
+    box-shadow: 0 0 10px rgba(255, 0, 79, 0.5);
 }
 form .btn2{
     padding: 14px 60px;
     font-size: 18px;
     margin-top: 20px;
     cursor: pointer;
-    
+    background: #ff004f;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+form .btn2:hover {
+    background: #ff0055cc;
+    transform: translateY(-2px);
+}
+#msg{
+    color: #61b752;
+    margin-top: 10px;
+    display: block;
+    font-size: 14px;
 }
 .copyright{
     width: 100%;
