@@ -180,29 +180,13 @@
         <h1 class="sub-title">My Work</h1>
         <div class="work-list">
             <div class="work">
-                  <img src="course-website.PNG" alt="Course Selling Website">
-                  <div class="layer">
-                    <h3>EduLearn - Course Selling Website</h3>
-                    <p>
-                      A full-stack Course Selling Platform built using the MERN stack (MongoDB, Express, Node.js, EJS). 
-                      It includes instructor and student dashboards, video/photo/PDF uploads via Cloudinary, 
-                      and Razorpay integration for secure online payments. The website features authentication, 
-                      course management, and a fully responsive modern UI.
-                    </p>
-                    <a href="https://course-website-yec8.onrender.com" target="_blank">
-                      <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    </a>
-                  </div>
-                </div>
-
-            <div class="work">
                 <img src="jewellery1.png" alt="Jewellery Website">
                 <div class="layer">
                     <h3>Jewellery Showcase Website</h3>
                     <p>This is a full-stack Jewellery Showcase website built using the MERN stack. 
                        Users can browse jewellery collections, view product details, upload images through Cloudinary, 
                        and manage categories. It supports user authentication and features a modern, responsive UI.</p>
-                    <a href="https://jewelry-website-8x78.onrender.com"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <a href="https://jewelry-website-8x78.onrender.com/products"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
             </div>
             <div class="work">
@@ -269,15 +253,13 @@
                 <a href="Sunil_Soni_Resume.pdf" download class="btn btn2">Dowanload CV</a>
             </div>
             <div class="contact-right">
-                <form id="contact-form" name="submit-to-google-sheet"  method="POST">
-  <input type="text" name="Name" placeholder="Your Name" required>
-  <input type="email" name="Email" placeholder="Your Email" required>
-  <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-  <button type="submit" class="btn btn2">Submit</button>
-</form>
-                <span id="msg"
-                ></span>
-                
+                <form id="contact-form" onsubmit="event.preventDefault(); sendDirect();">
+                  <input type="text" name="Name" placeholder="Your Name" required>
+                  <input type="email" name="Email" placeholder="Your Email" required>
+                  <textarea name="Message" rows="6" placeholder="Your Message" required></textarea>
+                  <button type="button" onclick="sendDirect()" class="btn btn2">Send Message</button>
+                </form>
+                <span id="msg"></span>
             </div>
         </div>
     </div>
@@ -330,32 +312,46 @@
 </script>
 
 <script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbzASJ84WyvLf-LM6mB4CU3XSl0JIo-4WkwdE1nOlka9KQiQ9YRTHR1t5Ed77L--lH8/exec'; // Replace with your actual URL
-const form = document.forms['submit-to-google-sheet'];
-const msg = document.getElementById("msg");
+  const scriptURL = "https://script.google.com/macros/s/AKfycbwSINN6mKWMYX-z7WgBe3SDVRGDd1IsZIUtKQBc_FFZ-T7m2k6Qcosl4dxQFHFnCFcrWQ/exec";
+  const msg = document.getElementById("msg");
 
-form.addEventListener('submit', e => {
-  e.preventDefault();
+  async function sendDirect() {
+    const Name = document.querySelector('input[name="Name"]').value.trim();
+    const Email = document.querySelector('input[name="Email"]').value.trim();
+    const Message = document.querySelector('textarea[name="Message"]').value.trim();
 
-  msg.innerHTML = "Submitting..."; // Provide feedback while submitting
+    if (!Name || !Email || !Message) {
+      msg.innerHTML = "Please fill all fields!";
+      return;
+    }
 
-  fetch(scriptURL, { method: 'POST', body: JSON.stringify(Object.fromEntries(new FormData(form).entries())) })
-    .then(response => response.json()) // Parse JSON response
-    .then(data => {
-      msg.innerHTML = data.message;  // Display the message from the server
-      if (data.status === "success") {
-        form.reset();
-        setTimeout(() => msg.innerHTML = "", 3000); // Clear message after 3 seconds
-      } else {
-        console.error("Error submitting form:", data.message); // Log error to console
-      }
-    })
-    .catch(error => {
-      console.error('Error!', error.message);
-      msg.innerHTML = "An error occurred. Please try again later.";
-    });
-});
-  </script>
+    msg.innerHTML = "Sending...";
+
+    const formData = new FormData();
+    formData.append("Name", Name);
+    formData.append("Email", Email);
+    formData.append("Message", Message);
+
+    try {
+      await fetch(scriptURL, {
+        method: "POST",
+        body: formData
+      });
+
+      msg.innerHTML = "Message Sent Successfully!";
+
+      document.querySelector('input[name="Name"]').value = "";
+      document.querySelector('input[name="Email"]').value = "";
+      document.querySelector('textarea[name="Message"]').value = "";
+
+      setTimeout(() => msg.innerHTML = "", 3000);
+
+    } catch (error) {
+      console.error(error);
+      msg.innerHTML = "Error sending message. Try again.";
+    }
+  }
+</script>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -385,12 +381,6 @@ form.addEventListener('submit', e => {
     </body>
     
 </html>
-
-
-
-
-
-
 
 
 
